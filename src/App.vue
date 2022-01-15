@@ -79,7 +79,7 @@ export default {
   methods: {
     // Get frontend config and trigger initial data fetch
     getConfig() {
-      axios.get('/config.json')
+      axios.get('config.json')
         .then(response => {
           this.config = response.data;
           // Set title if defined in config
