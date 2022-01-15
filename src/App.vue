@@ -125,8 +125,8 @@ export default {
   height: 100vh;
 }
 .content-wrapper {
-  min-width: 60%;
-  max-width: 95%;
+  width: 65%;
+  max-width: 1320px;
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
