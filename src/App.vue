@@ -149,7 +149,7 @@ html {
   padding: 0;
 }
 .shadow-box {
-  box-shadow: 0 15px 70px rgb(0 0 0 / 10%);
+  box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 10%);
   padding: 10px;
   border-radius: 10px;
 }
