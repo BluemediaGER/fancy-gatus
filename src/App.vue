@@ -8,7 +8,7 @@
       <OverallStatus class="overall-status" :failedEndpoints="failedEndpoints" />
       <EndpointGroup class="endpoint-group" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
     </div>
-    <Footer />
+    <Footer v-if="!$data.loading" />
   </div>
 </template>
 
