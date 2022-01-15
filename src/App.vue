@@ -136,7 +136,7 @@ export default {
     padding-right: 15px;
   }
   .content-wrapper {
-    max-width: 100%;
+    width: 100%;
   }
   .refresh-settings {
     display: none;
