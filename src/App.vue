@@ -75,13 +75,18 @@ export default {
       }
       axios.get('/api/v1/endpoints/statuses')
         .then(response => {
+          this.apiData = response.data;
+          // Remove hidden groups if defined in config
+          if (this.config.hiddenGroups) {
+            this.apiData = this.apiData.filter(endpoint => {
+              return !this.config.hiddenGroups.includes(endpoint.group);
+            });
+          }
           // Remove hidden endpoints if defined in config
           if (this.config.hiddenEndpoints) {
-            this.apiData = response.data.filter(endpoint => {
+            this.apiData = this.apiData.filter(endpoint => {
               return !this.config.hiddenEndpoints.includes(endpoint.name);
             });
-          } else {
-            this.apiData = response.data;
           }
           this.loading = false;
         })
