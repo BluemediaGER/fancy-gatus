@@ -44,11 +44,30 @@ export default {
   },
   computed: {
     // Group endpoints by their group name
+    // and sort the groups according to the config if specified
     groups() {
-      return this.apiData.reduce(function(rv, x) {
+      // Group
+      let groups = this.apiData.reduce(function(rv, x) {
         (rv[x["group"]] = rv[x["group"]] || []).push(x);
         return rv;
       }, {});
+      console.log(groups);
+      // Sort
+      if (this.config.groupOrder) {
+        let order = [...this.config.groupOrder];
+        let tmp = {};
+        Object.assign(tmp, groups);
+        groups = {};
+        order.forEach(key => {
+          if (key in tmp) {
+            groups[key] = tmp[key];
+            delete tmp[key];
+          }
+        });
+        Object.assign(groups, tmp);
+        console.log(groups);
+      }
+      return groups;
     },
     // Get an array of all failed endpoints
     failedEndpoints() {
