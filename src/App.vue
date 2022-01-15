@@ -8,7 +8,10 @@
       <OverallStatus class="overall-status" :failedEndpoints="failedEndpoints" />
       <EndpointGroup class="endpoint-group" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
     </div>
-    <Footer v-if="!$data.loading" />
+    <div v-if="!$data.loading">
+      <RefreshSettings :defaultRefreshInterval="$data.config.defaultRefreshInterval" v-on:refresh="this.getApiData()" />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -17,6 +20,7 @@ import Loader from '@/components/Loader.vue';
 import Header from '@/components/Header.vue';
 import OverallStatus from '@/components/OverallStatus.vue';
 import EndpointGroup from '@/components/EndpointGroup.vue';
+import RefreshSettings from '@/components/RefreshSettings.vue';
 import Footer from '@/components/Footer.vue';
 
 import axios from 'axios';
@@ -28,6 +32,7 @@ export default {
     Header,
     OverallStatus,
     EndpointGroup,
+    RefreshSettings,
     Footer
   },
   data() {
@@ -65,7 +70,13 @@ export default {
           this.getApiData();
         })
         .catch(error => {
-          console.log(error);
+          if (error.response.status === 404) {
+            console.warn('Could not find config.json. Using default values.');
+            this.config = {}
+            this.getApiData();
+          } else {
+            console.log("Error getting config: " + error);
+          }
         });
     },
     getApiData() {
@@ -75,19 +86,20 @@ export default {
       }
       axios.get('/api/v1/endpoints/statuses')
         .then(response => {
-          this.apiData = response.data;
+          let data = response.data;
           // Remove hidden groups if defined in config
           if (this.config.hiddenGroups) {
-            this.apiData = this.apiData.filter(endpoint => {
+            data = data.filter(endpoint => {
               return !this.config.hiddenGroups.includes(endpoint.group);
             });
           }
           // Remove hidden endpoints if defined in config
           if (this.config.hiddenEndpoints) {
-            this.apiData = this.apiData.filter(endpoint => {
+            data = data.filter(endpoint => {
               return !this.config.hiddenEndpoints.includes(endpoint.name);
             });
           }
+          this.apiData = data;
           this.loading = false;
         })
         .catch(error => {
@@ -140,6 +152,7 @@ html {
   margin: 0;
   --green: #00d560;
   --orange: #ff9100;
+  --grey: #7d8187;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
