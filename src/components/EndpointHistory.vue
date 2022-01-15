@@ -37,10 +37,11 @@ export default {
   height: 20px;
   margin: 0;
   border-radius: 50rem;
-  --hover-scale: 1.5;
+  --hover-scale: 1.3;
 }
 .blob:hover {
   transform: scale(var(--hover-scale));
+  transition-duration: 100ms;
 }
 .green {
   background-color: var(--green);
