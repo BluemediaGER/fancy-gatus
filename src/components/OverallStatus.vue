@@ -1,10 +1,10 @@
 <template>
   <div class="shadow-box">
-    <div class="status-wrapper" v-if="this.failedEndpoints.length === 0">
+    <div class="flex ai-center status-wrapper" v-if="this.failedEndpoints.length === 0">
       <BIconCheckCircleFill class="icon green" />
       <span>All services healthy.</span>
     </div>
-    <div class="status-wrapper" v-else>
+    <div class="flex ai-center status-wrapper" v-else>
       <BIconExclamationCircleFill class="icon orange" />
       <span>{{ failedEndpointCountText }}</span>
     </div>
@@ -44,8 +44,6 @@ export default {
 
 <style scoped>
 .status-wrapper {
-  display: flex;
-  align-items: center;
   font-size: 1.3rem;
   margin-left: 10px;
   margin-top: 10px;

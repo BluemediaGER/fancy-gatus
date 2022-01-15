@@ -1,5 +1,5 @@
 <template>
-  <div class="history">
+  <div class="flex flex-row jc-space-between history">
     <div v-for="(result, index) in preparedResults" :key="index" :title="result.timestamp" :class="{blob: true, green: result.success === true, orange: result.success === false, grey: !result.timestamp}"></div>
   </div>
 </template>
@@ -27,9 +27,6 @@ export default {
 
 <style scoped>
 .history {
- display: flex;
- flex-direction: row;
- justify-content: space-between;
  width: 300px;
 }
 .blob {

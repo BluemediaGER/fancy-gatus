@@ -1,5 +1,5 @@
 <template>
-  <div class="endpoint">
+  <div class="flex ai-center endpoint">
     <BIconCheckCircleFill class="green icon" v-if="isSuccessfull" />
     <BIconExclamationCircleFill class="orange icon" v-if="!isSuccessfull" />
     <span>{{ endpoint.name }}</span>
@@ -39,8 +39,6 @@ export default {
 
 <style scoped>
 .endpoint {
-  display: flex;
-  align-items: center;
   padding: 10px;
 }
 span {

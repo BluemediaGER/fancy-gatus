@@ -1,12 +1,12 @@
 <template>
-  <div class="main">
-    <div v-if="$data.loading" class="loader-wrapper">
+  <div class="flex flex-column ai-center main">
+    <div v-if="$data.loading" class="flex ai-center jc-center loader-wrapper">
       <Loader />
     </div>
-    <div v-if="!$data.loading" class="content-wrapper">
+    <div v-if="!$data.loading" class="flex flex-column jc-center content-wrapper">
       <Header :title="this.config.title" />
-      <OverallStatus class="overall-status" :failedEndpoints="failedEndpoints" />
-      <EndpointGroup class="endpoint-group" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
+      <OverallStatus class="mtop-2" :failedEndpoints="failedEndpoints" />
+      <EndpointGroup class="mtop-2" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
     </div>
     <div v-if="!$data.loading">
       <RefreshSettings :defaultRefreshInterval="$data.config.defaultRefreshInterval" v-on:refresh="this.getApiData()" />
@@ -114,17 +114,14 @@ export default {
 </script>
 
 <style scoped>
+.mtop-2 {
+  margin-top: 2rem;
+}
 .main {
   padding-left: 30px;
   padding-right: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .loader-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 .content-wrapper {
@@ -132,15 +129,6 @@ export default {
   max-width: 95%;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.overall-status {
-  margin-top: 2rem;
-}
-.endpoint-group {
-  margin-top: 2rem;
 }
 </style>
 
@@ -160,6 +148,24 @@ html {
   -moz-osx-font-smoothing: grayscale;
   color: #2F3545;
   padding: 0;
+}
+.flex {
+  display: flex;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-space-between {
+  justify-content: space-between;
+}
+.ai-center {
+  align-items: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
 }
 .shadow-box {
   box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 10%);

@@ -1,6 +1,6 @@
 <template>
-  <div id="settings">
-    <div class="reload-icon">
+  <div id="settings" class="flex">
+    <div class="flex jc-center ai-center reload-icon">
       &#x21bb;
     </div>
     <select id="refresh-rate" ref="refreshInterval" @change="handleChangeRefreshInterval">
@@ -50,7 +50,6 @@ export default {
 
 <style scoped>
 #settings {
-  display: flex;
   position: fixed;
   left: 10px;
   bottom: 10px;
@@ -60,9 +59,6 @@ export default {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
 }
 .reload-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0;
   width: 1.4rem;
   height: 1.4rem;
