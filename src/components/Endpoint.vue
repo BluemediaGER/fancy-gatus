@@ -1,11 +1,15 @@
 <template>
   <div class="flex ai-center endpoint">
-    <BIconCheckCircleFill class="green icon" v-if="isSuccessfull" />
-    <BIconExclamationCircleFill class="orange icon" v-if="!isSuccessfull" />
-    <span>{{ endpoint.name }}</span>
-    <span class="hostname" v-if="hostname">| {{ hostname }}</span>
+    <div class="flex ai-center info">
+      <BIconCheckCircleFill class="green icon" v-if="isSuccessfull" />
+      <BIconExclamationCircleFill class="orange icon" v-if="!isSuccessfull" />
+      <span>{{ endpoint.name }}</span>
+      <span class="hostname" v-if="hostname">| {{ hostname }}</span>
+    </div>
     <span class="spacer"></span>
-    <EndpointHistory :results="endpoint.results" />
+    <div class="history">
+      <EndpointHistory :results="endpoint.results" />
+    </div>
   </div>
 </template>
 
@@ -55,5 +59,31 @@ span {
 }
 .spacer {
   flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .endpoint {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+  }
+  .info {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .history {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  .icon {
+    font-size: 15px;
+  }
+  span {
+    font-size: 15px;
+  }
+  .hostname {
+    display: none;
+  }
 }
 </style>

@@ -9,7 +9,7 @@
       <EndpointGroup class="mtop-2" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
     </div>
     <div v-if="!$data.loading">
-      <RefreshSettings :defaultRefreshInterval="$data.config.defaultRefreshInterval" v-on:refresh="this.getApiData()" />
+      <RefreshSettings class="refresh-settings" :defaultRefreshInterval="$data.config.defaultRefreshInterval" v-on:refresh="this.getApiData()" />
       <Footer />
     </div>
   </div>
@@ -129,6 +129,18 @@ export default {
   max-width: 95%;
   margin-top: 1rem;
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .content-wrapper {
+    max-width: 100%;
+  }
+  .refresh-settings {
+    display: none;
+  }
 }
 </style>
 

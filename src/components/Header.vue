@@ -26,4 +26,12 @@ h2 {
   margin: 0;
   margin-left: 20px;
 }
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 40px;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
 </style>

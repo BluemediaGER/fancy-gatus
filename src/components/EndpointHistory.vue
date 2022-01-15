@@ -47,6 +47,12 @@ export default {
   background-color: var(--orange);
 }
 .grey {
-  background-color: grey;
+  background-color: var(--grey);
+}
+@media screen and (max-width: 768px) {
+  .history {
+    width: 100%;
+    margin-top: 0.4rem
+  }
 }
 </style>

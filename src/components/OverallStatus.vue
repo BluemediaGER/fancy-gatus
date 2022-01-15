@@ -55,4 +55,12 @@ export default {
 span {
   margin-left: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .status-wrapper {
+    font-size: 1rem;
+  }
+  .icon {
+    font-size: 20px;
+  }
+}
 </style>
