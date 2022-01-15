@@ -112,9 +112,9 @@ export default {
 }
 .content-wrapper {
   min-width: 60%;
-  max-width: 90%;
+  max-width: 95%;
   margin-top: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
