@@ -54,7 +54,6 @@ export default {
         (rv[x["group"]] = rv[x["group"]] || []).push(x);
         return rv;
       }, {});
-      console.log(groups);
       // Sort
       if (this.config.groupOrder) {
         let order = [...this.config.groupOrder];
@@ -68,7 +67,6 @@ export default {
           }
         });
         Object.assign(groups, tmp);
-        console.log(groups);
       }
       return groups;
     },
