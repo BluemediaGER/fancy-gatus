@@ -48,6 +48,9 @@ export default {
     groups() {
       // Group
       let groups = this.apiData.reduce(function(rv, x) {
+        if (!x.group) {
+          x.group = "Ungrouped";
+        }
         (rv[x["group"]] = rv[x["group"]] || []).push(x);
         return rv;
       }, {});
