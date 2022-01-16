@@ -6,13 +6,6 @@ You can see it in action here: https://status.bluemedia.dev
 
 ![Demo screenshot](docs/demo-screenshot.png)
 
-## Table of Contents
-- [Configuration](#configuration)
-- [Deployment](#deployment)
-  - [Customizing the logo](#customizing-the-logo)
-- [Building Fancy Gatus](#building-fancy-gatus)
-- [Development](#development)
-
 ## Configuration
 
 The frontend tries to retrieve a configuration file named `config.json` from the webroot during page load. If the configuration is loaded successfully, it will be used to make advanced adjustments to the frontend. The possible options are listed below.
