@@ -5,6 +5,7 @@
     </div>
     <div v-if="!$data.loading" class="flex flex-column jc-center content-wrapper">
       <Header :title="this.config.title" />
+      <Notice class="mtop-2" v-if="this.config.notice" :notice="this.config.notice" />
       <OverallStatus class="mtop-2" :failedEndpoints="failedEndpoints" />
       <EndpointGroup class="mtop-2" v-for="(value, key) in groups" :key="key" :name="key" :endpoints="value" />
     </div>
@@ -18,6 +19,7 @@
 <script>
 import Loader from '@/components/Loader.vue';
 import Header from '@/components/Header.vue';
+import Notice from '@/components/Notice.vue';
 import OverallStatus from '@/components/OverallStatus.vue';
 import EndpointGroup from '@/components/EndpointGroup.vue';
 import RefreshSettings from '@/components/RefreshSettings.vue';
@@ -30,6 +32,7 @@ export default {
   components: {
     Loader,
     Header,
+    Notice,
     OverallStatus,
     EndpointGroup,
     RefreshSettings,
@@ -150,16 +153,26 @@ export default {
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+  .content-wrapper {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 820px) {
+  .content-wrapper {
+    width: 90%;
+  }
+  .refresh-settings {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
   .main {
     padding-left: 15px;
     padding-right: 15px;
   }
   .content-wrapper {
     width: 100%;
-  }
-  .refresh-settings {
-    display: none;
   }
 }
 </style>
