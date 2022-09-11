@@ -19,6 +19,9 @@ export default {
       while (tmp.length < 20) {
         tmp.unshift({});
       }
+      for (let t of tmp) {
+        t.timestamp = new Date(t.timestamp).toLocaleString();
+      }
       return tmp;
     }
   }
