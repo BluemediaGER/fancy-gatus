@@ -5,6 +5,7 @@ Fancy Gatus is an alternative frontend for the monitoring tool [Gatus](https://g
 You can see it in action here: https://status.bluemedia.dev
 
 ![Demo screenshot](docs/demo-screenshot.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FBluemediaGER%2Ffancy-gatus.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FBluemediaGER%2Ffancy-gatus?ref=badge_shield)
 
 ## Configuration
 
@@ -72,3 +73,7 @@ yarn lint
 - Stick to the structure
 - Test your changes
 - Update the documentation
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FBluemediaGER%2Ffancy-gatus.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FBluemediaGER%2Ffancy-gatus?ref=badge_large)
